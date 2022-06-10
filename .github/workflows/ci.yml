@@ -1,0 +1,28 @@
+name: .NET
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+    - run: |
+          ./Build-ClusterObserver.ps1
+          ./Build-COSFPkgs.ps1
+      shell: pwsh
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.0
+      with:
+        name: SFPKG
+        path: ./bin/release/ClusterObserver/SFPkgs/*Windows*
