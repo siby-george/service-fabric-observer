@@ -13,7 +13,6 @@ function Build-SFPkg {
 
     [string] $outputDir = "$scriptPath\bin\release\ClusterObserver\SFPkgs"
     [string] $zipPath = "$outputDir\$($packageId).zip"
-    [System.IO.Directory]::CreateDirectory($outputDir) | Out-Null
 
     Compress-Archive "$basePath\*"  $zipPath -Force
 
@@ -22,7 +21,7 @@ function Build-SFPkg {
 
 try {
     Push-Location $scriptPath
-
+    New-Item -Path "$scriptPath\bin\release\ClusterObserver\SFPkgs" -ItemType Directory
     Build-SFPkg "Microsoft.ServiceFabricApps.ClusterObserver.Linux.SelfContained.2.1.14" "$scriptPath\bin\release\ClusterObserver\linux-x64\self-contained\ClusterObserverType"
     Build-SFPkg "Microsoft.ServiceFabricApps.ClusterObserver.Linux.FrameworkDependent.2.1.14" "$scriptPath\bin\release\ClusterObserver\linux-x64\framework-dependent\ClusterObserverType"
 
