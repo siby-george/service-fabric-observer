@@ -12,6 +12,7 @@
     <Parameter Name="MonitorRepairJobs" DefaultValue="true" />
     <Parameter Name="MonitorUpgrades" DefaultValue="true" />
     <Parameter Name="EnableOperationalTelemetry" DefaultValue="true" />
+	<Parameter Name="AppInsightsInstrumentationKey" DefaultValue=""/>
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
@@ -32,6 +33,9 @@
             <Parameter Name="MonitorUpgrades" Value="[MonitorUpgrades]" />
             <Parameter Name="EnableOperationalTelemetry" Value="[EnableOperationalTelemetry]" />
           </Section>
+			<Section Name="ObserverManagerConfiguration">
+				<Parameter Name="AppInsightsInstrumentationKey" Value="[AppInsightsInstrumentationKey]"/>
+			</Section>
         </Settings>
       </ConfigOverride>
     </ConfigOverrides>

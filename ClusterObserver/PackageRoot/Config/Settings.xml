@@ -21,7 +21,7 @@
     <Parameter Name="EnableETWProvider" Value="true" />
     <Parameter Name="EnableTelemetry" Value="true" />
     <!-- Required: Supported Values are AzureApplicationInsights or AzureLogAnalytics as these providers are implemented. -->
-    <Parameter Name="TelemetryProvider" Value="AzureLogAnalytics" />
+    <Parameter Name="TelemetryProvider" Value="AzureApplicationInsights" />
     <!-- Required-If TelemetryProvider is AzureApplicationInsights. -->
     <Parameter Name="AppInsightsInstrumentationKey" Value="" />
     <!-- Required-If TelemetryProvider is AzureLogAnalytics. Your Workspace Id. -->
